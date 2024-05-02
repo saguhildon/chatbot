@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="item">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-4">
+          <kendo-label class="fw-bolder" [for]="'titleTextbox'" text="Title"></kendo-label>
+          <input id="titleTextbox" class="form-control mt-2" kendoTextBox [(ngModel)]="title" />
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="mb-4">
+          <kendo-label class="fw-bolder" [for]="'authorTextbox'" text="Author"></kendo-label>
+          <input id="authorTextbox" class="form-control mt-2" kendoTextBox [(ngModel)]="author" />
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="mb-4">
+          <!-- <kendo-upload [autoUpload]="false" [saveUrl]="uploadSaveUrl" (upload)="onUpload($event)">
+            </kendo-upload> -->
+          <kendo-upload [autoUpload]="false" (select)="handleFileSelected($event)" (remove)="handleFileRemoved($event)"
+            (upload)="onUpload($event)">
+          </kendo-upload>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 text-center">
+      <button class="m-2" kendoButton [primary]="true" (click)="saveFile()">Upload</button>
+    </div>
+    <section class="card">
+      <h3 style="text-align: center;">About Generative</h3>
+      <p>
+        Generative SAM is a LLM chatbot using gpt-4-turbo,
+        interfacing with LaingChain agent and designed to SIMTech,
+        A*STAR-related matters. As it's not mature yet,
+        it needs your help to teach him by uploading
+        the non-confidential documents with .pdf or .md format.
+      </p>
+    </section>
+
+  </div>
+  <div class="item bigger">
+    <kendo-chat [messages]="feed | async" [user]="user" (sendMessage)="sendMessage($event)">
+    </kendo-chat>
+  </div>
+  <div class="item">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-4">
+          <kendo-label class="fw-bolder" [for]="'temperatureTextbox'" text="Temperature"></kendo-label>
+          <div style="margin-top:0.75rem;">
+            <kendo-numerictextbox  [autoCorrect]="autoCorrect" [min]="0.1" [max]="1" [step]="0.1"
+            [(ngModel)]="temperature" #numericValueModel="ngModel" [format]="{ type: 'number', minFractionDigits: 0, maxFractionDigits: 2 }"></kendo-numerictextbox>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="mb-4">
+          <kendo-label class="fw-bolder" [for]="'maxtokensTextbox'" text="Max Tokens"></kendo-label>
+          <div style="margin-top:0.75rem;">
+            <kendo-numerictextbox  [autoCorrect]="autoCorrect" [min]="10" [max]="150" [step]="20"
+            [(ngModel)]="max_tokens" #numericValueModel="ngModel"></kendo-numerictextbox>               
+          </div>
+                 
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="mb-4">
+          <kendo-label class="fw-bolder" [for]="'toppTextbox'" text="Top P"></kendo-label>
+          <div style="margin-top:0.75rem;">
+            <kendo-numerictextbox  [autoCorrect]="autoCorrect" [min]="0.1" [max]="1" [step]="0.1"
+            [(ngModel)]="top_p" #numericValueModel="ngModel" [format]="{ type: 'number', minFractionDigits: 0, maxFractionDigits: 2 }"></kendo-numerictextbox>
+          </div>        
+          
+        </div>
+      </div>
+      <div class="col-12 text-center">
+        <button class="m-2" kendoButton [primary]="true" (click)="apply_parameters()">Apply Parameters</button>
+      </div>
+    </div>
+    <section class="card">
+      <h3 style="text-align: center;">About Hyperparameters</h3>
+      <p>
+        <span style="font-weight:bold;">Temperature: </span>Controls the randomness of text generation; lower values
+        prioritize high-probability tokens, while higher values introduce more randomness.
+      </p>
+      <p>
+        <span style="font-weight:bold;">Max Token:</span>Limits the number of tokens in generated text to manage its
+        length and prevent it from becoming excessively long.
+      </p>
+      <p>
+        <span style="font-weight:bold;">Top P:</span>Determines the portion of the probability distribution considered
+        during token selection; higher values focus on more probable tokens, while lower values allow for exploration of
+        less probable ones.
+      </p>
+    </section>
+
+  </div>
+</div>

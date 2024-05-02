@@ -1,0 +1,66 @@
+<!-- <h2>Chat Bot</h2>
+<ng-container *ngFor="let message of chatMessages">
+<div class="message"
+[ngClass]="{ 'from': message.role === 'bot',
+'to': message.role === 'user' }">
+{{ message.content }}
+</div>
+</ng-container>
+
+<div class="row">
+    <div class="col-9">
+
+         <input 
+        placeholder="Search in all columns..."
+        kendoTextBox
+        [(ngModel)]="userMessage"
+        (keyup.enter)="sendMessage()"
+
+        />
+    </div>  
+
+    <div class="col-3">
+        <button  kendoButton  class="me-3"  (click)="sendMessage()"><span class="k-icon k-i-paper-plane "></span></button>
+
+    </div>  
+    </div>
+
+
+ -->
+ <div class="Profile" (clickOutside)="onClick()">
+
+
+
+ <kendo-popup
+
+ class = "Profile__popup"
+ [anchor] ="anchor"
+ *ngIf="show"
+>
+<kendo-card width="auto" class="Profile__card">
+ <kendo-card-header>
+   <div>
+    <kendo-chat
+    [messages]="feed | async"
+    [user]="user"
+    (sendMessage)="sendMessage($event)"
+    >
+    </kendo-chat>
+   </div>
+ </kendo-card-header>
+
+</kendo-card>
+</kendo-popup>
+
+<button
+class="Profile__button"
+kendoButton
+look="flat"
+#anchor
+(click)="toggleChat()"
+>
+<kendo-icon [name]="'comment'"></kendo-icon>
+</button>
+
+
+</div>

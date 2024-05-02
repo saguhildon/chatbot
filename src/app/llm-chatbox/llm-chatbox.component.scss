@@ -1,0 +1,39 @@
+.input_style{
+    margin-left: 0.5rem;
+}
+.section_header{
+    margin: auto;
+    width: 97%;
+    border: 1px solid #273746;
+    padding: 10px;
+    border-radius: 1rem;
+}
+::ng-deep .k-chat{
+    max-width: 100%;
+}
+::ng-deep .k-clear-selected, .k-upload-selected {
+    display: none !important;
+  }
+
+  ::ng-deep .k-upload .k-upload-selected {
+    display: none !important;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 25% 50% 25%; /* Adjust column widths as needed */
+    grid-gap: 10px; /* Adjust spacing between items as needed */
+  }
+  .item {
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 1rem;
+  }
+  .bigger {
+    align-self: stretch; /* Stretch the middle item vertically */
+  }
+  
+  ::ng-deep .k-chat {
+    max-width: 100%;
+    height: 100%;
+}
