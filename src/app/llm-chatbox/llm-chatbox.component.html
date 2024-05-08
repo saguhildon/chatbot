@@ -3,13 +3,13 @@
     <div class="row">
       <div class="col-md-12">
         <div class="mb-4">
-          <kendo-label class="fw-bolder" [for]="'titleTextbox'" text="Title"></kendo-label>
+          <kendo-label class="fw-bolder" [for]="'titleTextbox'" text="Title:"></kendo-label>
           <input id="titleTextbox" class="form-control mt-2" kendoTextBox [(ngModel)]="title" />
         </div>
       </div>
       <div class="col-md-12">
         <div class="mb-4">
-          <kendo-label class="fw-bolder" [for]="'authorTextbox'" text="Author"></kendo-label>
+          <kendo-label class="fw-bolder" [for]="'authorTextbox'" text="Author:"></kendo-label>
           <input id="authorTextbox" class="form-control mt-2" kendoTextBox [(ngModel)]="author" />
         </div>
       </div>
@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="mb-4">
-          <kendo-label class="fw-bolder" [for]="'temperatureTextbox'" text="Temperature"></kendo-label>
+          <kendo-label class="fw-bolder" [for]="'temperatureTextbox'" text="Temperature:"></kendo-label>
           <div style="margin-top:0.75rem;">
             <kendo-numerictextbox  [autoCorrect]="autoCorrect" [min]="0.1" [max]="1" [step]="0.1"
             [(ngModel)]="temperature" #numericValueModel="ngModel" [format]="{ type: 'number', minFractionDigits: 0, maxFractionDigits: 2 }"></kendo-numerictextbox>
@@ -56,7 +56,7 @@
           
         </div>
       </div>
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         <div class="mb-4">
           <kendo-label class="fw-bolder" [for]="'maxtokensTextbox'" text="Max Tokens"></kendo-label>
           <div style="margin-top:0.75rem;">
@@ -65,10 +65,10 @@
           </div>
                  
         </div>
-      </div>
+      </div> -->
       <div class="col-md-12">
         <div class="mb-4">
-          <kendo-label class="fw-bolder" [for]="'toppTextbox'" text="Top P"></kendo-label>
+          <kendo-label class="fw-bolder" [for]="'toppTextbox'" text="Top P:"></kendo-label>
           <div style="margin-top:0.75rem;">
             <kendo-numerictextbox  [autoCorrect]="autoCorrect" [min]="0.1" [max]="1" [step]="0.1"
             [(ngModel)]="top_p" #numericValueModel="ngModel" [format]="{ type: 'number', minFractionDigits: 0, maxFractionDigits: 2 }"></kendo-numerictextbox>
@@ -86,10 +86,10 @@
         <span style="font-weight:bold;">Temperature: </span>Controls the randomness of text generation; lower values
         prioritize high-probability tokens, while higher values introduce more randomness.
       </p>
-      <p>
+      <!-- <p>
         <span style="font-weight:bold;">Max Token:</span>Limits the number of tokens in generated text to manage its
         length and prevent it from becoming excessively long.
-      </p>
+      </p> -->
       <p>
         <span style="font-weight:bold;">Top P:</span>Determines the portion of the probability distribution considered
         during token selection; higher values focus on more probable tokens, while lower values allow for exploration of

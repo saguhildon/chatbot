@@ -84,7 +84,7 @@ export class LlmChatboxComponent implements OnInit {
       typing: true,
     });
 
-    this.svc.submit(e.message.text,this.temperature,this.max_tokens,this.top_p);
+    this.svc.submit(e.message.text,this.temperature,this.top_p);
   }
   ngOnInit(): void {
 

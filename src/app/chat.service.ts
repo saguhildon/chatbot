@@ -9,11 +9,11 @@ import { response } from 'express';
 export class ChatService {
   public readonly responses: Subject<string> = new Subject<string>();
   constructor(private http: HttpClient) {}
-  public submit(question: string,temperature,max_tokens,top_p): void {
+  public submit(question: string,temperature,top_p): void {
     let params = new HttpParams();
     params = params.set('msg', question);
     params = params.set('temperature', temperature);
-    params = params.set('max_tokens', max_tokens);
+   // params = params.set('max_tokens', max_tokens);
     params = params.set('top_p', top_p);
     this.http.get('https://dev.mf.platform/chatbox/get', { params, responseType: 'text' }).subscribe(
       (response: string) => {
